@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Super Exclusive Best WPF application" Height="450" Width="800"
-        MinHeight="450" MinWidth="800"
-        MaxHeight="450" MaxWidth="800">
+        Title="MainWindow" Height="585.776" Width="916.379">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="256*"/>
-            <RowDefinition Height="163*"/>
+            <RowDefinition Height="74*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="72*"/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="325.922" Grid.RowSpan="2" SelectionChanged="ListBox_SelectionChanged">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="325.922" Grid.RowSpan="3" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Grid.RowSpan="1" Grid.ColumnSpan="3" Height="100" Width="315.922" Orientation="Horizontal">
@@ -25,26 +24,27 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Label x:Name="nameLabel" Content="Name" HorizontalAlignment="Left" Margin="361.971,185.95,0,0" VerticalAlignment="Top" Width="76.738" Height="25.96"/>
+        <Label x:Name="ageLabel" Content="Age" HorizontalAlignment="Left" Margin="361.971,86.29,0,0" VerticalAlignment="Top" Width="76.738" Grid.Row="1" Height="25.96"/>
+        <TextBox x:Name="nameText" HorizontalAlignment="Left" Height="23" Text="{Binding Name, Mode = TwoWay}" Margin="361.971,1.062,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFBB5252" Grid.Row="1">
+            <TextBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF399E83" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox x:Name="ageText" HorizontalAlignment="Left" Height="23" Text="{Binding Age, Mode = TwoWay}" Margin="361.971,3.799,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF1F4637" Background="#FFBB5252" Grid.Row="2"/>
+        <Button x:Name="addButton" Content="Add Data" HorizontalAlignment="Left" Margin="374.996,95.484,0,0" VerticalAlignment="Top" Width="75" Click="addButton_Click" Grid.Row="2" Height="19.96"/>
         <StackPanel HorizontalAlignment="Right" Height="293.513" VerticalAlignment="Top" Width="290.179" RenderTransformOrigin="5.772,2.101" Grid.RowSpan="2">
             <Border Name="imageBorder" BorderBrush="Black" BorderThickness="3" CornerRadius="0" Padding="0" Height="254.446">
                 <Image x:Name="image" VerticalAlignment="Center" Margin="0" HorizontalAlignment="Center" Stretch="UniformToFill"/>
             </Border>
             <Button x:Name="addImage" Content="Add Image" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="AddImage_Click" RenderTransformOrigin="1.072,-0.255" Margin="30,15,0,25"/>
         </StackPanel>
-        <StackPanel x:Name="infoStack" HorizontalAlignment="Center" Height="300" VerticalAlignment="Top" Width="138.637" Grid.RowSpan="2" Margin="340.922,0,312.441,0">
-            <Label x:Name="nameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76.738" Margin="10,100,0,0"/>
-            <TextBox x:Name="nameText" HorizontalAlignment="Left" Height="23" Text="{Binding Name, Mode=TwoWay}" Margin="10,0,-20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFBB5252">
-                <TextBox.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FF399E83" Offset="1"/>
-                    </LinearGradientBrush>
-                </TextBox.BorderBrush>
-            </TextBox>
-            <Label x:Name="ageLabel" Content="Age" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76.738" Margin="10,0,0,0"/>
-            <TextBox x:Name="ageText" HorizontalAlignment="Left" Height="23" Text="{Binding Age, Mode=TwoWay}" Margin="10,0,-20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF1F4637" Background="#FFBB5252"/>
-            <Button x:Name="addButton" Content="Add Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="addButton_Click" Margin="30,30,28,0"/>
-        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="fetchDataBtn" Content="Load Data" HorizontalAlignment="Left" Height="46.552" Margin="696.604,147.603,0,0" Grid.Row="2" VerticalAlignment="Top" Width="93.879" Click="FetchDataBtn_Click"/>
+        <TextBox x:Name="fetchTextBox" HorizontalAlignment="Left" Height="174.866" Margin="618.2,84.69,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
